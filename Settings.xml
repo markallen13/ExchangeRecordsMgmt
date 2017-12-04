@@ -18,6 +18,9 @@
         The Connection parameters to create the PSSession to the Exchange Server.  See the 
         cmdlet help for New-PSSession, specifically for the ConnectionUri and 
         Authentication parameters.
+
+        These settings are not used if the user is already running the module in the 
+        Exchange Management Shell.
     -->
     <ExchPowerShellURI>
         http://yourservername/PowerShell/
