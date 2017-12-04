@@ -1,0 +1,14 @@
+PSTOPIC
+    
+    about_ExchangeRecordsMgmt
+
+SHORT DESCRIPTION
+    
+    PowerShell module that works with Exchange Web Services to create folders, set retention periods, and other tasks as needed related to setting up records management policies for an organization.
+
+LONG DESCRIPTION
+    
+    A lengthy explanation of this module can be found in the README.md associated with this project. See the Github repository at:  
+    
+    https://github.com/markallen13/ExchangeRecordsMgmt
+

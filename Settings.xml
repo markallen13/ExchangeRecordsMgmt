@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+    <!--  
+        The path to the Exchange Web Services DLL file from the Program Files library on 
+        your system.  
+    -->
+    <EWSPath>
+        \Microsoft\Exchange\Web Services\2.2\Microsoft.Exchange.WebServices.dll
+    </EWSPath>
+    <!--   
+        The version of Exchange to be used. See:  
+        https://msdn.microsoft.com/en-us/library/microsoft.exchange.webservices.data.exchangeversion(v=exchg.80).aspx  
+    -->
+    <EWSExchangeVersion>
+        Exchange2010_SP2
+    </EWSExchangeVersion>
+    <!--   
+        The Connection parameters to create the PSSession to the Exchange Server.  See the 
+        cmdlet help for New-PSSession, specifically for the ConnectionUri and 
+        Authentication parameters.
+    -->
+    <ExchPowerShellURI>
+        http://yourservername/PowerShell/
+    </ExchPowerShellURI>
+    <ExchPowerShellAuth>
+        Kerberos
+    </ExchPowerShellAuth>
+</Settings>
+
