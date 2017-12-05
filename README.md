@@ -10,6 +10,10 @@ This module was originally developed and tested to work on Exchange Server 2010 
 
 ### Module Requirements 
 
+See the following link for general rules on installing a PowerShell module.  
+
+https://msdn.microsoft.com/en-us/library/dd878350(v=vs.85).aspx
+
 The user will need to update the configuration parameters defined in Settings.xml before using the module.
 
 The module requires the Exchange Web Services library to be installed and available.  You can download this package from:  
@@ -23,6 +27,8 @@ https://docs.microsoft.com/en-us/dotnet/api/system.management.automation.runspac
 The module requires that the local network logon account also be granted the ApplicationImpersonation role in Exchange.  I did this by setting up a RoleAssigneeType of 'User', which means my user is directly assigned to this role as opposed to a group.  Here's the PowerShell I used (this does require Exchange Management Console):
 
 `New-ManagementRoleAssignment -Role 'ApplicationImpersonation' -User <Your Domain User Name>`
+
+The module make heavy use of -Verbose output (including during Import-Module), so please use that switch if you are having problems.  
 
 ### How to Use the Module
 
