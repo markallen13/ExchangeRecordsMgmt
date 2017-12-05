@@ -1,4 +1,4 @@
-# Exchange-Records-Mgmt
+# ExchangeRecordsMgmt
 
 PowerShell module that works with Exchange Web Services to create folders, set retention periods, and other tasks as needed related to setting up records management policies for an organization.
 
@@ -20,7 +20,7 @@ The module requires the Exchange Web Services library to be installed and availa
 
 https://www.microsoft.com/en-us/download/details.aspx?id=42951
 
-The module requires that either the user have permissions to open a remote session with the Exchange Server, either by using the module in the Exchange Management Shell, or by automatically connecting the Exchange Server directly through a PSSession.  The module checks for this when it is initialized, and only opens a PSSession with Exchange server if needed.  You will need to update the module configuration with the domain name of the Exchange Server and the authentication method to be used.  The following authentication methods can be used:
+The module requires that the user have permissions to open a remote session with the Exchange Server, either by using the module within the Exchange Management Shell, or by automatically connecting the Exchange Server directly through a PSSession.  The module checks for this when it is initialized, and only opens a PSSession with Exchange server if needed.  If you are not using the Exchange Management Console, you will need to update the module configuration file (Settings.xml) with the domain name of the Exchange Server and the authentication method to be used for the PSSession.  The following authentication methods can be used:
 
 https://docs.microsoft.com/en-us/dotnet/api/system.management.automation.runspaces.authenticationmechanism?view=powershellsdk-1.1.0
 
@@ -49,12 +49,11 @@ An important note is that the EWS objects returned by this module (specifically 
 https://msdn.microsoft.com/en-us/library/microsoft.exchange.webservices.data.folder_methods(v=exchg.80).aspx
 https://msdn.microsoft.com/en-us/library/microsoft.exchange.webservices.data.emailmessage_methods(v=exchg.80).aspx
 
-Changes to the Retention Policy Tags will likely not apply immediately.  To apply changes from this script quickly, run the following command after this one to
-start the Managed Folder Assistant process.  
+Changes to the Retention Policy Tags will likely not apply immediately.  To apply changes from this module quickly, run the following command to start the Managed Folder Assistant process.  
 
     Start-ManagedFolderAssistant <MailboxName>
 
-When retrieving folder objects, you have the option of creating a Tracefile.  This will show all communication between the server and your client.  Note that the tracefile will continue to be populated anywhere you use the folder object (in other words, not just when you specify the Tracefile parameter). 
+When retrieving folder objects, you have the option of creating a Tracefile.  This will show all communication between the server and your client.  Note that if you create a Folder object with the TraceFile switch, communication with the server will continue to be recorded any time you use that object until said object falls out of scope or is removed from the enviroment.  
 
 ### Why is Exchange Web Services API required?
 
