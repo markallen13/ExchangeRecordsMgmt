@@ -4,8 +4,11 @@ Clear-ERMFolderTag takes in a *live* mailbox folder and clears the retention pol
 that folder.  
 .DESCRIPTION
 Clear-ERMFolderTag takes a instance of Microsoft.Exchange.WebServices.Data.Folder and 
-removes any retention tag settings on it (including the Archive settings).  This causes 
-the retention tag to revert back to the parent folder. 
+removes any retention tag settings on it.  This causes the retention tag to revert back to 
+the parent folder. 
+
+If you wish to clear an Archive tag, use the -Archive flag, as these are not automatically
+removed.  
 
 To apply changes from this script quickly, run the following command after this one to
 start the Managed Folder Assistant process immediately.  
@@ -36,10 +39,6 @@ Function Clear-ERMFolderTag {
     )
 
     $ErrorActionPreference = "Stop"
-        
-    if (($Folder.FolderClass -ne 'IPF.Note') -or ($Folder.GetType().Name -ne 'Folder')) {
-        throw "Folder $($Folder.DisplayName) is not used for E-Mail Messages."
-    }
 
     # Define which MAPI properties we want to clear and the new retention flags. 
 
@@ -52,6 +51,7 @@ Function Clear-ERMFolderTag {
         $PeriodDef = $RetentionPeriodDef
         $PolicyTagDef = $RetPolicyTagDef
         $Flags = (GetFolderRetentionFlags $Folder) -band (-bnot $ExplicitRetentionFlags)
+        Write-Verbose "Note:  To clear an Archive Tag, use the -Archive Switch"
     }
 
     # Remove the policy name and period properties. 

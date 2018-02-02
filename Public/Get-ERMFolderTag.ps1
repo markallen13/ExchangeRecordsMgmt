@@ -35,10 +35,6 @@ Function Get-ERMFolderTag {
 
     $ErrorActionPreference = "Stop"
 
-    if (($Folder.FolderClass -ne 'IPF.Note') -or ($Folder.GetType().Name -ne 'Folder')) {
-        throw "Folder $($Folder.DisplayName) is not used for E-Mail Messages."
-    }
-
     # Get the tag. 
 
     $CurrentTag = GetFolderRetentionTag $Folder $ArchiveTag

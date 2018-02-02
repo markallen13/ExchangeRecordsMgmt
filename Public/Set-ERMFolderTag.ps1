@@ -41,11 +41,7 @@ Function Set-ERMFolderTag {
     )
 
     $ErrorActionPreference = "Stop"
-
-    if (($Folder.FolderClass -ne 'IPF.Note') -or ($Folder.GetType().Name -ne 'Folder')) {
-        throw "Folder $($Folder.DisplayName) is not used for E-Mail Messages."
-    }
-
+    
     # Search for the tag to be applied and verify it is a unique tag.   
 
     $Tag = Get-RetentionPolicyTag -Identity $TagName
