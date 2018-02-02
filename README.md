@@ -4,7 +4,7 @@ PowerShell module that works with Exchange Web Services to create folders, set r
 
 ### Overview
 
-This module encapsulates functionality in Exchange Web Services and the Exchange Management Shell to perform folder and item manipulation tasks on arbitrary user mailboxes to create a basic retention system, using Retention Policy Tags already defined in the Exchange server.  The primary use is to create folder structures and apply or remove Retention Policy Tags and Archive Policy Tags in folder and items in the Outlook mailbox folder hierarchy.  
+This module encapsulates functionality in Exchange Web Services and the Exchange Management Shell to perform folder manipulation tasks on arbitrary user mailboxes to create a basic retention system, using Retention Policy Tags already defined in the Exchange server.  The primary use is to create folder structures and apply or remove Retention Policy Tags and Archive Policy Tags in folder and items in the Outlook mailbox folder hierarchy.  
 
 This module was originally developed and tested to work on Exchange Server 2010 SP3.  It has not been tested or verified on later versions of Exchange or Exchange Online.
 
@@ -14,7 +14,7 @@ See the following link for general rules on installing a PowerShell module.
 
 https://msdn.microsoft.com/en-us/library/dd878350(v=vs.85).aspx
 
-The user will need to update the configuration parameters defined in Settings.xml before using the module.
+The user will need to update the configuration parameters defined in Settings.xml (located in the module's root directory) before using the module.
 
 The module requires the Exchange Web Services library to be installed and available.  You can download this package from:  
 
@@ -42,9 +42,9 @@ The user first must obtain an instance of an Microsoft.Exchange.WebServices.Data
     Get-ERMChildFolder
     New-ERMFolder
 
-The user can then manipulate retention tags by passing in the folder object.  The user can also obtain access to individual e-mail items using Get-ERMFolderItem.  There are 3 sets of cmdlets for folders and e-email items used to obtain, clear, and set the retention policy, which are named accordingly. 
+The user can then manipulate retention tags by passing in the folder object to one of the other cmdlets.  The user can also obtain access to individual e-mail items using Get-ERMFolderItem.  (Manipulating retention on individual e-mail items is not supported in this version.)  
 
-An important note is that the EWS objects returned by this module (specifically the Microsoft.Exchange.WebServices.Data.Folder and Microsoft.Exchange.WebServices.Data.EmailMessage objects) remain connected to the Exchange Server once they are returned to the user.  It follows that the user can manipulate these items directly using the object's methods.  For example, you can change the name of the objects or delete them using the methods defined in the API.  See the following for more information:
+An important note is that the EWS objects returned by this module (specifically instances of Microsoft.Exchange.WebServices.Data.Folder) remain connected to the Exchange Server once they are returned to the user.  It follows that the user can manipulate these items directly using the object's methods.  For example, you can change the name of the objects or delete them using the methods defined in the API.  See the following for more information:
 
 https://msdn.microsoft.com/en-us/library/microsoft.exchange.webservices.data.folder_methods(v=exchg.80).aspx
 https://msdn.microsoft.com/en-us/library/microsoft.exchange.webservices.data.emailmessage_methods(v=exchg.80).aspx
