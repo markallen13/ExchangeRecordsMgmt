@@ -1,6 +1,6 @@
 # ExchangeRecordsMgmt
 
-PowerShell module that works with Exchange Web Services to create folders, set retention periods, and other tasks as needed related to setting up records management policies for an organization.
+PowerShell module that works with Exchange Web Services to create folders, set retention periods, and other tasks as needed related to setting up records management policies for an organization using Message Records Management 2.0.  
 
 ### Overview
 
